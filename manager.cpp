@@ -41,7 +41,7 @@ int main(){
 	for(int testTime = startTime; testTime <= endTime; testTime += 5){
 
 		// Compiles bitcoin with new block time
-		InjectBlockTime::inject(testTime);
+		system("python3 ChangeFile.py "+testTime);
 		system("./bitcoin/autogen.sh && ./bitcoin/configure && make -j 2");
 
 		
