@@ -5,10 +5,6 @@
 
 using namespace std;
 
-
-string InjectBlockTime::tspan = "consensus.nPowTargetTimespan";
-string InjectBlockTime::spacing = "consensus.nPowTargetSpacing";
-
 const int endTime = 60 * 20; // 20 Minutes
 const int startTime = 5; // 5 Seconds
 int msg;
