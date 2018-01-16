@@ -17,7 +17,7 @@ def changeFile(secs, deStr):
 	editSect = rText[startChar:endChar]
 	splitFile = rText.split(editSect)
 	editStr = strSecs.join(splitFile)
-	wFile = open("TEST_chainparams.cpp", "w")
+	wFile = open("chainparams.cpp", "w")
 	wFile.write(editStr)
 def dewit(numSecs):
 	changeFile(numSecs, str1)
