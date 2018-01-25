@@ -46,9 +46,9 @@ int main(){
 	system("$HOME/bitcoin/src/bitcoind -regtest -daemon");
 	for(string name : hosts){
 		std::ostringstream addNode;
-		addnode << "$HOME/bitcoin/src/bitcoin-cli -regtest addnode " << name << " \"node\"";
+		addNode << "$HOME/bitcoin/src/bitcoin-cli -regtest addnode " << name << " \"node\"";
 		string command = addNode.str();
-		system(command);
+		system(command.c_str());
 	}
 	system("$HOME/bitcoin/src/bitcoin-cli -regtest generate 101");
 
@@ -59,7 +59,7 @@ int main(){
 			MPI_Barrier(MPI_COMM_WORLD);
 			auto start = chrono::steady_clock::now();
 			while(chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now()-start).count() < 5000){
-				system(sendCommand);
+				system(sendCommand.c_str());
 			}
 			MPI_Barrier(MPI_COMM_WORLD);
 			if(worldRank == 0){
