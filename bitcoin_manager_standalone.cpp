@@ -5,10 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <unistd.h>
-#include <jsoncpp/json/json.h>
-#include <jsoncpp/json/reader.h>
-#include <jsoncpp/json/writer.h>
-#include <jsoncpp/json/value.h>
+
 using namespace std;
 using namespace std::chrono;
 
@@ -16,20 +13,6 @@ const int endTime = 60 * 10; // 10 Minutes
 const int startTime = 10; // 10 Seconds
 const string sendCommand = "$HOME/bitcoin/src/bitcoin-cli -regtest sendtoaddress miNcNbbqp39Th3QYkiqTXW2QauQ5JKcmjR 0.0001";
 int txs = 0;
-
-std::string sysout(std::string command){
-	std::string out;
-	std::ostringstream resultStream;
-	resultStream << command << " >> store.txt";
-	std::string result = resultStream.str();
-	system(result.c_str());
-	std::ifstream readStream("store.txt");
-	while(!readStream.eof()){
-		readStream >> out; 
-	}
-	readStream.close();
-	return out;
-}
 
 int main(){
 
