@@ -53,22 +53,6 @@ int main(){
 			system("$HOME/bitcoin/src/bitcoin-cli -regtest generate 1");
 
 		}
-		/*
-		std::ostringstream lastBlockHash;
-		int maxBlocks = 0;
-		stringstream blockString(sysout("$HOME/bitcoin/src/bitcoin-cli -regtest getblockcount"));
-		blockString >> maxBlocks;
-		std::cout << "Max Blocks: " << maxBlocks << std::endl;
-		std::ostringstream hashCommmand;
-		hashCommmand << "$HOME/bitcoin/src/bitcoin-cli -regtest getblockhash " << maxBlocks - 4;
-		std::string chunkCommand = hashCommmand.str();
-		lastBlockHash << sysout(chunkCommand);
-		std::string lastHash = lastBlockHash.str();
-		std::ostringstream txStream;
-		txStream << "$HOME/bitcoin/src/bitcoin-cli -regtest listsinceblock " << lastHash << " 1";
-		std::string txCommand = txStream.str(); 
-		std::string numTxs = sysout(txCommand);
-		*/
 		data << testTime << "," << txs << "\n";
 		txs = 0;
 
